@@ -34,7 +34,7 @@ const Movie = (props) => {
             <FontAwesomeIcon icon={faPlay} />
             Trailer
           </button>
-          <button className="rounded bg-slate-300/35 px-4 py-2 text-[10px] text-black/50 lg:text-lg">
+          <button className="rounded bg-slate-300/35 px-4 py-2 text-[10px] text-white lg:text-lg">
             View Detail
           </button>
         </div>
