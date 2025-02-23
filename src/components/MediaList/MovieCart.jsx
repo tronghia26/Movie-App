@@ -1,4 +1,4 @@
-import CircularProgressbar from './CircularProgressbar';
+import CircularProgressbar from '../CircularProgressbar.jsx';
 
 const MovieCart = ({ title, releaseDate, poster, point, mediaType }) => {
   return (

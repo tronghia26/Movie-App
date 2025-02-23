@@ -1,5 +1,5 @@
 const CircularProgressbar = ({
-  percent = 50,
+  percent = 0,
   size = 3,
   strokeWidth = 0.25,
   strokeColor = 'green',
