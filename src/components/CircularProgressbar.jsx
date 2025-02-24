@@ -6,6 +6,10 @@ const CircularProgressbar = ({
 }) => {
   const radius = size / 2 - strokeWidth;
   const c = 2 * radius * Math.PI;
+
+  // Kiểm tra nếu percent là NaN, thay bằng 0 nếu có lỗi
+  const validPercent = isNaN(percent) ? 0 : percent;
+
   return (
     <div>
       <svg className="" width={`${size}vw`} height={`${size}vw`}>
@@ -24,7 +28,7 @@ const CircularProgressbar = ({
           stroke={strokeColor}
           strokeWidth={`${strokeWidth}vw`}
           strokeDasharray={`${c}vw`}
-          strokeDashoffset={`${c - (percent / 100) * c}vw`}
+          strokeDashoffset={`${c - (validPercent / 100) * c}vw`}
           transform="rotate(-90)"
           style={{ transformOrigin: 'center' }}
           strokeLinecap="round"
@@ -37,7 +41,7 @@ const CircularProgressbar = ({
           alignmentBaseline="middle"
           textAnchor="middle"
         >
-          {percent}
+          {validPercent}
         </text>
       </svg>
     </div>
