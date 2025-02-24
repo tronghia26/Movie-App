@@ -1,10 +1,10 @@
-import CircularProgressbar from '../CircularProgressbar.jsx';
+import CircularProgressbar from './CircularProgressbar.jsx';
 import { Link } from 'react-router-dom';
 
 const MovieCart = ({ id, title, releaseDate, poster, point, mediaType }) => {
   return (
-    <Link to={`movie/${id}`}>
-      <div className="relative rounded-lg border border-slate-800">
+    <Link className="rounded-lg border border-slate-800" to={`movie/${id}`}>
+      <div className="relative">
         {mediaType === 'tv' && (
           <p className="absolute top-1 right-1 rounded bg-black p-4 text-[10px] font-bold text-white shadow-md sm:text-[12px] lg:text-sm">
             TV Show

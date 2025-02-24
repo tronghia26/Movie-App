@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const ActorInfo = ({ id, name, character, profilePath }) => {
   return (
     <div className="rounded-lg border border-slate-300 bg-black shadow-sm">

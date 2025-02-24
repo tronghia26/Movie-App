@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import MovieCart from './MovieCart';
+import MovieCart from '@components/MovieCart';
 
 const MediaList = ({ title, tabs }) => {
   const [mediaList, setMediaList] = useState([]);
