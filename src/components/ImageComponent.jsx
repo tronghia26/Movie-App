@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
 const ImageComponent = ({ src, width, height, className }) => {
@@ -11,6 +10,10 @@ const ImageComponent = ({ src, width, height, className }) => {
     img.src = src;
     img.onload = () => {
       setCurrentSrc(src);
+    };
+    return () => {
+      // clean up function
+      img.onload = null;
     };
   }, [src]);
 

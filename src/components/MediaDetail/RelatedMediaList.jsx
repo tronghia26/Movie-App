@@ -14,11 +14,11 @@ const RelatedMediaList = ({ mediaList = [], isLoading }) => {
               <MovieCart
                 key={media.id}
                 id={media.id}
-                title={media.title}
-                releaseDate={media.release_date}
+                title={media.title || media.name}
+                releaseDate={media.first_air_date}
                 poster={media.poster_path}
                 point={media.vote_average}
-                mediaType={media.media_type}
+                mediaType={media.media_type || media.type}
               />
             );
           })}
