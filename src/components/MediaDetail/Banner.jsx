@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { groupBy } from 'lodash';
 import CircularProgressbar from '../CircularProgressbar';
 import ImageComponent from '@components/ImageComponent';
+import { useModalContext } from '@context/ModalProvider';
 
 const Banner = ({
   backdrop_path,
@@ -14,12 +15,18 @@ const Banner = ({
   genres,
   point = 0,
   overview,
+  trailerVideoKey,
 }) => {
+  const { setIsShowing, setContent } = useModalContext();
+
+  if (!title) return null;
   const groupedCrews = groupBy(crews, 'job');
   // console.log(groupedCrews);
   return (
     <div className="relative overflow-hidden bg-black text-white shadow-sm shadow-slate-800">
       <ImageComponent
+        width={1200}
+        height={800}
         className="absolute inset-0 aspect-video w-full brightness-[.2]"
         src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
       />
@@ -49,7 +56,18 @@ const Banner = ({
               />
               Rating
             </div>
-            <button>
+            <button
+              onClick={() => {
+                setIsShowing(true);
+                setContent(
+                  <iframe
+                    title="Trailer"
+                    src={`https://www.youtube.com/embed/${trailerVideoKey}`}
+                    className="aspect-video w-[50vw]"
+                  ></iframe>,
+                );
+              }}
+            >
               <FontAwesomeIcon icon={faPlay} className="mr-1" /> Trailer
             </button>
           </div>
