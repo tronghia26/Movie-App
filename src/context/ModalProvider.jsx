@@ -11,6 +11,11 @@ const ModalProvider = ({ children }) => {
   const [isShowing, setIsShowing] = useState(false);
   const [content, setContent] = useState();
 
+  const openPopup = (content) => {
+    setIsShowing(true);
+    setContent(content);
+  };
+
   useEffect(() => {
     if (isShowing) {
       document.body.style.overflow = 'hidden';
@@ -21,7 +26,7 @@ const ModalProvider = ({ children }) => {
 
   return (
     // các biến để trong value thì các con cháu được bọc bằng context  này thì sẽ đều truy xuất đến và sử dụng được
-    <ModalContext.Provider value={{ setIsShowing, setContent }}>
+    <ModalContext.Provider value={{ openPopup }}>
       {children}
       {isShowing && (
         <div className="fixed inset-0">

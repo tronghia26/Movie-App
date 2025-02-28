@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
 const Movie = (props) => {
-  const { setIsShowing, setContent } = useModalContext();
+  const { openPopup } = useModalContext();
   if (!props.data) {
     return <div>No movie data available</div>;
   }
@@ -40,8 +40,7 @@ const Movie = (props) => {
           <button
             className="mr-2 rounded bg-white px-4 py-2 text-[10px] text-black lg:text-lg"
             onClick={() => {
-              setIsShowing(true);
-              setContent(
+              openPopup(
                 <iframe
                   title="Trailer"
                   src={`https://www.youtube.com/embed/${trailerVideoKey}`}

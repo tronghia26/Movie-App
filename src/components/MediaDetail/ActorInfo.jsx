@@ -1,9 +1,12 @@
 import ImageComponent from '@components/ImageComponent';
+import { Link } from 'react-router-dom';
 
-/* eslint-disable no-unused-vars */
 const ActorInfo = ({ id, name, character, profilePath, episodeCount }) => {
   return (
-    <div className="rounded-lg border border-slate-300 bg-black shadow-sm">
+    <Link
+      to={`/people/${id}`}
+      className="rounded-lg border border-slate-300 bg-black shadow-sm"
+    >
       <ImageComponent
         src={
           profilePath
@@ -26,7 +29,7 @@ const ActorInfo = ({ id, name, character, profilePath, episodeCount }) => {
 
         {/* <p>21 episodes</p> */}
       </div>
-    </div>
+    </Link>
   );
 };
 

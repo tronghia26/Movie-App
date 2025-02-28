@@ -17,7 +17,7 @@ const Banner = ({
   overview,
   trailerVideoKey,
 }) => {
-  const { setIsShowing, setContent } = useModalContext();
+  const { openPopup } = useModalContext();
 
   if (!title) return null;
   const groupedCrews = groupBy(crews, 'job');
@@ -30,7 +30,7 @@ const Banner = ({
         className="absolute inset-0 aspect-video w-full brightness-[.2]"
         src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
       />
-      <div className="relative mx-auto flex max-w-screen-xl gap-6 px-6 py-10 sm:gap-8">
+      <div className="container">
         <div className="flex-1">
           <ImageComponent
             src={`https://media.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`}
@@ -58,8 +58,7 @@ const Banner = ({
             </div>
             <button
               onClick={() => {
-                setIsShowing(true);
-                setContent(
+                openPopup(
                   <iframe
                     title="Trailer"
                     src={`https://www.youtube.com/embed/${trailerVideoKey}`}
