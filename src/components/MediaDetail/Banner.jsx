@@ -28,12 +28,17 @@ const Banner = ({
         width={1200}
         height={800}
         className="absolute inset-0 aspect-video w-full brightness-[.2]"
-        src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+        src={
+          backdrop_path && `https://image.tmdb.org/t/p/original${backdrop_path}`
+        }
       />
-      <div className="container">
+      <div className="relative container">
         <div className="flex-1">
           <ImageComponent
-            src={`https://media.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`}
+            src={
+              poster_path &&
+              `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`
+            }
             width={600}
             height={900}
           />
@@ -57,6 +62,7 @@ const Banner = ({
               Rating
             </div>
             <button
+              className="rounded bg-slate-300/20 p-2"
               onClick={() => {
                 openPopup(
                   <iframe

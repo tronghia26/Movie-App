@@ -18,7 +18,10 @@ const Movie = (props) => {
     <div>
       <ImageComponent
         className="aspect-video w-full brightness-50"
-        src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
+        src={
+          backdrop_path &&
+          `https://image.tmdb.org/t/p/original/${backdrop_path}`
+        }
         width={900}
         height={500}
       />

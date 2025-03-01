@@ -11,26 +11,25 @@ const GENDER = {
 
 const PeoplePage = () => {
   const peopleInfo = useLoaderData();
-  console.log(peopleInfo);
+  console.log(peopleInfo.combined_credits?.cast);
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-[1.2vw] text-white">
       <div className="container">
         <div className="flex-1">
           <ImageComponent
-            src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${peopleInfo.profile_path}`}
+            src={
+              peopleInfo.profile_path &&
+              `https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${peopleInfo.profile_path}`
+            }
             height={900}
             width={600}
             className="mb-6"
           />
-          <p className="mb-6 font-bold">Personal Info</p>
+          <p className="mb-6 text-[1.3vw] font-bold">Personal Info</p>
           <div className="space-y-4">
             <div>
               <p className="font-bold">Known For</p>
               <p>{peopleInfo.known_for_department}</p>
-            </div>
-            <div>
-              <p className="font-bold">Known Credits</p>
-              <p>46</p>
             </div>
             <div>
               <p className="font-bold">Gender</p>
@@ -47,9 +46,9 @@ const PeoplePage = () => {
           </div>
         </div>
         <div className="flex-[2]">
-          <p className="font-bold">{peopleInfo.name}</p>
-          <div>
-            <p className="font-bold">Tiểu sử</p>
+          <p className="mb-6 text-[2vw] font-bold">{peopleInfo.name}</p>
+          <div className="mb-6">
+            <p className="mb-4 text-[1.4vw] font-bold">Biography</p>
             <p className="whitespace-pre-line">{peopleInfo.biography}</p>
           </div>
           <RelatedMediaList

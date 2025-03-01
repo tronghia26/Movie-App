@@ -16,9 +16,9 @@ const Header = () => {
           Truyền hình
         </a>
       </div>
-      <div>
+      <Link to={'/search'}>
         <FontAwesomeIcon icon={faMagnifyingGlass} className="cursor-pointer" />
-      </div>
+      </Link>
     </header>
   );
 };
