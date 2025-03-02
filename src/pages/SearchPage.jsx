@@ -11,9 +11,17 @@ const SearchPage = () => {
       rating: 'All',
     },
   });
+  const [minRating, maxRating] =
+    searchFormValues.rating === 'All'
+      ? [0, 100]
+      : searchFormValues.rating?.split(' - ') || [0, 100];
+
   const { data } = useFetch({
-    url: `/discover/${searchFormValues.mediaType}`,
+    url: searchFormValues.mediaType
+      ? `/discover/${searchFormValues.mediaType}?sort_by=popularity.desc?with_genres=${searchFormValues.genres?.join(',') || ''}&vote_average.gte=${minRating / 10}&vote_average.lte=${maxRating / 10}`
+      : null,
   });
+
   console.log(data);
   return (
     <div className="container flex-col">

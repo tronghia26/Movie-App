@@ -45,7 +45,6 @@ const SearchForm = ({ setSearchFormValues }) => {
           control={control}
           Component={RatingInput}
         />
-        <input type="submit"></input>
       </form>
     </div>
   );
