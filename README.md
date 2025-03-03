@@ -13,7 +13,7 @@
 - **React.js**  
 - **Next.js** (hoặc Vite nếu cần tối ưu)  
 - **Tailwind CSS**  
-- **Axios** (gọi API TMDb)  
+- **Fetch** (gọi API TMDb)  
 - **React Router**  
 
 ```bash
